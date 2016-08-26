@@ -1,0 +1,287 @@
+@charset "utf-8";
+/*-----基本样式-----------*/
+body {
+  background-color: #fff;
+  min-width: 320px;
+}
+html {
+  font-size: 16px;
+}
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+/*--------------设置样式---------------*/
+/*-------header start------*/
+header {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+header > .container > .wdgr_logo {
+  float: left;
+  display: block;
+}
+header > .container > h1 {
+  float: left;
+  font-weight: 900;
+}
+header > .container > .header_tel {
+  padding-top: 30px;
+  float: right;
+  font-size: 30px;
+  color: #c32526;
+}
+@media (max-width: 768px) {
+  header {
+    padding-top: 0;
+  }
+  header .wdgr_logo {
+    width: 24px;
+    padding-top: 20px;
+  }
+  header h1 {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
+/*-------header end------*/
+/*-------nav start------*/
+nav {
+  background-color: #c32526;
+  color: #fff;
+}
+nav .wdgr_default {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 10px;
+}
+nav .wdgr_default .navbar-header_tel {
+  float: left;
+  font-size: 20px;
+  padding-top: 8px;
+  padding-left: 20px;
+  margin: 0;
+}
+nav .wdgr_default .navbar-nav > li > a {
+  font-size: 16px;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.wdgr_default .navbar-nav > li > a:hover,
+.wdgr_default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: #c32526;
+  text-decoration: underline;
+}
+.wdgr_default .navbar-nav > .active > a,
+.wdgr_default .navbar-nav > .active > a:hover,
+.wdgr_default .navbar-nav > .active > a:focus {
+  color: #c32526;
+  background-color: #f5f5f5;
+}
+.wdgr_default .navbar-nav > .disabled > a,
+.wdgr_default .navbar-nav > .disabled > a:hover,
+.wdgr_default .navbar-nav > .disabled > a:focus {
+  color: #fff;
+  background-color: #c32526;
+}
+.wdgr_default .navbar-toggle {
+  border-color: #fff;
+  padding: 5px 15px;
+  margin: 5px 15px 5px 0;
+  color: #fff;
+}
+.wdgr_default .navbar-toggle:hover,
+.wdgr_default .navbar-toggle:focus {
+  background-color: #c32526;
+}
+.wdgr_default .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.wdgr_default .navbar-collapse,
+.wdgr_default .navbar-form {
+  border-color: #e7e7e7;
+}
+.wdgr_default .navbar-nav > .open > a,
+.wdgr_default .navbar-nav > .open > a:hover,
+.wdgr_default .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: #e7e7e7;
+}
+.wdgr_default .navbar-link {
+  color: #777;
+}
+.wdgr_default .navbar-link:hover {
+  color: #333;
+}
+.wdgr_default .btn-link {
+  color: #777;
+}
+.wdgr_default .btn-link:hover,
+.wdgr_default .btn-link:focus {
+  color: #333;
+}
+.wdgr_default .btn-link[disabled]:hover,
+fieldset[disabled] .wdgr_default .btn-link:hover,
+.wdgr_default .btn-link[disabled]:focus,
+fieldset[disabled] .wdgr_default .btn-link:focus {
+  color: #ccc;
+}
+/*-------nav end------*/
+/*----banner start----*/
+.wdgr_banner .m_img {
+  width: 100%;
+  display: block;
+}
+.wdgr_banner .m_img img {
+  width: 100%;
+  display: block;
+}
+.wdgr_banner .pc_img {
+  height: 410px;
+  width: 100%;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/*----banner end----*/
+/*--------content start----------*/
+.wdgr_content {
+  background-color: #fff7c9;
+}
+.wdgr_content > .container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 1rem;
+}
+.wdgr_content > .container > .wdgr_contentnav {
+  background-color: #fff;
+  border-radius: 15px;
+}
+.wdgr_content > .container > .wdgr_aboutUs {
+  padding: 0 0 0 15px;
+}
+.wdgr_content > .container > .wdgr_aboutUs > .aboutUs {
+  background-color: #fff;
+  border-radius: 15px;
+  padding-top: 10px;
+}
+.wdgr_content > .container > .wdgr_aboutUs > .aboutUs .head {
+  font-size: 16px;
+  position: relative;
+  line-height: 30px;
+  padding-left: 10px;
+}
+.wdgr_content > .container > .wdgr_aboutUs > .aboutUs .head::before {
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  content: "";
+  width: 22px;
+  height: 8px;
+  background-color: #c32526;
+}
+.wdgr_content > .container > .wdgr_aboutUs > .aboutUs .head h3 {
+  display: block;
+  padding: 0 5px 15px 0;
+  width: 30px;
+  border-right: 1px solid #c32526;
+}
+.wdgr_content > .container > .wdgr_aboutUs > .aboutUs .content {
+  padding: 10px;
+  overflow: hidden;
+}
+#customerServe {
+  padding-top: 15px;
+}
+.wdgr_nav-tabs {
+  border-bottom: 1px solid #ccc;
+}
+.wdgr_nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+.wdgr_nav-tabs > li > a {
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  color: #555;
+}
+.wdgr_nav-tabs > li > a:hover {
+  border-bottom: 3px solid #c32526;
+  background-color: #fff;
+}
+.wdgr_nav-tabs > li.active > a,
+.wdgr_nav-tabs > li.active > a:hover,
+.wdgr_nav-tabs > li.active > a:focus {
+  color: #555;
+  background-color: #fff;
+  border-bottom: 3px solid #c32526;
+}
+.wdgr_nav-tabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+.wdgr_nav-tabs.nav-justified > li {
+  float: none;
+}
+.wdgr_nav-tabs.nav-justified > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+.wdgr_nav-tabs.nav-justified > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+@media (min-width: 768px) {
+  .wdgr_nav-tabs.nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+  .wdgr_nav-tabs.nav-justified > li > a {
+    margin-bottom: 0;
+  }
+}
+.wdgr_nav-tabs.nav-justified > li > a {
+  margin-right: 0;
+  border-radius: 4px;
+}
+.wdgr_nav-tabs.nav-justified > .active > a,
+.wdgr_nav-tabs.nav-justified > .active > a:hover,
+.wdgr_nav-tabs.nav-justified > .active > a:focus {
+  border-bottom: 3px solid #c32526;
+}
+@media (min-width: 768px) {
+  .wdgr_nav-tabs.nav-justified > li > a {
+    border-bottom: 1px solid #ddd;
+    border-radius: 4px 4px 0 0;
+  }
+  .wdgr_nav-tabs.nav-justified > .active > a,
+  .wdgr_nav-tabs.nav-justified > .active > a:hover,
+  .wdgr_nav-tabs.nav-justified > .active > a:focus {
+    border-bottom-color: #fff;
+  }
+}
+/*--------content send----------*/
+/*------------footer start-----------------*/
+footer {
+  padding-top: 15px;
+  background-color: #ccc;
+  height: 70px;
+}
+@media (max-width: 768px) {
+  footer {
+    font-size: 12px;
+  }
+}
+/*------------footer end-----------------*/
