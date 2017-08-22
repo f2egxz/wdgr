@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生日快乐</title>
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="X-UA-Compatible"  content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0" />
+    <style>
+        body {
+            background:#000;
+            color:#fff;
+            padding:0;
+            margin:0;
+            overflow:hidden;
+            text-align:center;
+        }
+
+        .blog {
+            position: fixed;
+            top: 0;
+            left: -355px;
+            width: 350px;
+            height: 200px;
+            background: url('./src/gift-jeans-fashion-pack-157879.jpeg') ;
+            background-size:cover;
+            color: bisque;
+            overflow: auto;
+        }
+
+        .tip {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="blog">
+    生日快乐！
+    <br> 祝你生日快乐 祝你生日快乐
+    <br> 祝你生日快乐 祝你生日快乐
+    <br> 眼睛明亮清澈
+    <br> 欣赏着崭新的景色
+    <br> 骑着梦想单车
+    <br> 踩下一路曲折
+    <br> 被时光唱成歌
+    <br> 点燃青春的火热
+    <br> 古灵精怪本色
+    <br> 让这美丽世界
+    <br> 多好多快乐
+    <br> 祝你生日快乐
+    <br> 来给地球 加点颜色
+    <br> 彩虹上 唱着歌
+    <br> 祝你天天快乐
+    <br> 人生剧本 自写角色
+    <br> 做未来的代言者
+    <br> Happy birthday to you
+    <br> Happy birthday to you
+    <br> Happy birthday happy birthday happy birthday to you
+    <br> 被时光唱成歌
+    <br> 点燃青春的火热
+    <br> 古灵精怪本色
+    <br> 让这美丽世界
+    <br> 多好多快乐
+    <br> 祝你生日快乐
+    <br> 来给地球 加点颜色
+    <br> 彩虹上 唱着歌
+    <br> 祝你天天快乐
+    <br> 人生剧本 自写角色
+    <br> 做未来的代言者
+    <br> 祝你生日快乐 祝你生日快乐
+    <br> 祝你生日快乐 祝你生日快乐
+    <br> 祝你生日快乐
+    <br> 来给地球 加点颜色
+    <br> 彩虹上 唱着歌
+    <br> 祝你天天快乐
+    <br> 人生剧本 自写角色
+    <br> 做未来的代言者
+</div>
+
+<div class="tip">
+    按住鼠标左键然后移动鼠标，会有惊喜哦！！
+</div>
+
+<video id="video" style="display: none; position: absolute; left: 15px; top: 75px;" src="./src/shwngri.mkv" controls="true" autoplay="true" loop></video>
+
+
+<script src="./src/three.js"></script>
+<script src="./src/Stats.js"></script>
+<script src="./src/FirstPersonControls.js"></script>
+<script>
+    var config = new function () {
+        this.title ={
+            font: './src/PangMenZhengDao_Regular.json',
+            text : "俊雅，生日快乐！",
+            height : 20,
+            size : 80,
+            curveSegments : 12,
+            bevelThickness : 10,
+            bevelSize : 1,
+            bevelSegments : 3,
+            bevelEnabled : false,
+            material:[
+                new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } ), // front
+                new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.SmoothShading } ) // side
+            ],
+            material:[
+                new THREE.MeshPhongMaterial( { color: 0xcccccc, envMap: new THREE.CubeTextureLoader()
+                    .setPath( './bgc05/' )
+                    .load(  [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ]  ) } ), // front
+                new THREE.MeshPhongMaterial( { color: 0xffffff,  envMap: new THREE.CubeTextureLoader()
+                    .setPath( './bgc05/' )
+                    .load(  [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ]  ) }  ) // side
+            ],
+            position:[400,0,800],
+            rotation:[0,1.1,0],
+            scale:[1,1,1]
+        };
+        this.zhi = {
+            font: './src/PangMenZhengDao_Regular.json',
+            text : "2017.08.23",
+            size : 20,
+            height:30,
+            material:[
+                new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } ), // front
+                new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.SmoothShading } ) // side
+            ],
+            /*envMap: cubeCamera.renderTarget.texture }*/
+            position:[-300,0,600],
+            rotation:[0,0.8,0],
+        }
+    };
+    var WIDTH = (window.innerWidth+350)/155;
+    var HEIGHT = (window.innerHeight+200)/110;
+    init();
+    function init () {
+        var stats = initStats();
+
+//------------------------------------------
+        var scene = new THREE.Scene();
+        scene.background = new THREE.CubeTextureLoader()
+            .setPath( './bgc05/' )
+            .load(  [ 'posx.jpg', 'negx.jpg', 'posy.jpg', 'negy.jpg', 'posz.jpg', 'negz.jpg' ]  );
+
+        var camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
+        var cameraControls = new THREE.FirstPersonControls(camera);
+        camera.position.set(0,100,100);
+        scene.add(camera);
+
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.setClearColor(new THREE.Color(0xffffff, 1.0));
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+
+//     add video
+        var video = document.getElementById('video');
+        var videoTexture = new THREE.VideoTexture(video);
+        videoTexture.minFilter = THREE.LinearFilter;
+        videoTexture.magFilter = THREE.LinearFilter;
+//      add plane
+        var planeGeometry = new THREE.PlaneGeometry(300, 200);
+        var planeMaterial = new THREE.MeshLambertMaterial({map: videoTexture,side: THREE.DoubleSide});
+        var plane = new THREE.Mesh(planeGeometry, planeMaterial);
+        plane.receiveShadow = true;
+        // rotate and position the plane
+        plane.rotation.y = 0.5 * Math.PI;
+        plane.position.set(-400,137,-200)
+        scene.add(plane)
+
+
+//        var ambientLight = new THREE.AmbientLight(0xffffff)
+//        scene.add(ambientLight);
+
+//        spotlight target
+        var targetObject = new THREE.Object3D();
+        targetObject.position.set(0,0,900)
+        scene.add(targetObject);
+
+
+        var spotLight = new THREE.SpotLight( 0xffffff,1 );
+//        spotLight.angle = 0.5
+        spotLight.position.set( -500, 130, 450 );
+        spotLight.castShadow = true;
+        scene.add( spotLight );
+        spotLight.target = targetObject;
+//        var spotLightHelper = new THREE.SpotLightHelper( spotLight );
+//        scene.add( spotLightHelper );
+
+        var pointLight01 = new THREE.PointLight(0xffd990);
+        pointLight01.position.set(450,40,650);
+        scene.add( pointLight01 );
+//        var pointLightHelper01 = new THREE.PointLightHelper( pointLight01, 3 );
+//        scene.add( pointLightHelper01 );
+
+        var pointLight02 = new THREE.PointLight(0xf3cc95);
+        pointLight02.position.set(450,20,800);
+        scene.add( pointLight02 );
+//        var pointLightHelper02 = new THREE.PointLightHelper( pointLight02, 3 );
+//        scene.add( pointLightHelper02 );
+
+        var pointLight03 = new THREE.PointLight(0xeaab7c);
+        pointLight03.position.set(-450,20,470);
+        scene.add( pointLight03 );
+//        var pointLightHelper03 = new THREE.PointLightHelper( pointLight03, 3 );
+//        scene.add( pointLightHelper03 );
+
+        var pointLight04 = new THREE.PointLight(0xff0000);
+        pointLight04.position.set(-450,20,850);
+        scene.add( pointLight04 );
+//        var pointLightHelper04 = new THREE.PointLightHelper( pointLight04, 3 );
+//        scene.add( pointLightHelper04 );
+
+        fontRender(config.title);
+        fontRender(config.zhi);
+
+//        改变屏幕大小时执行
+        window.addEventListener( 'resize', onWindowResize, false );
+        function onWindowResize() {
+            cameraControls = new THREE.FirstPersonControls(camera);
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+        }
+
+
+
+        var clock = new THREE.Clock();
+        render();
+        function render() {
+            stats.update();
+//            spotLightHelper.update();
+            blogPosition(cameraControls.cameraTarget);
+
+            var delta = clock.getDelta();
+            cameraControls.update(delta)
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+
+        /**
+         * 渲染文字
+         * @param config
+         *         config.font { url} 必须的 文字字体路径
+         *         config.text { string} 必须的 要渲染的文字
+         *         config.size  { num float} 必须的 文字大小
+         *         config.material { array } 必须的 文字的材料
+         *         config.height { num float} 默认50 文字的厚度，
+         *         config.curveSegments { num Integer} 默认12  曲线上点的个数
+         *         config.bevelEnabled  { bool} 默认false  是否打开斜面
+         *         config.bevelThickness{ num float} 默认10  如何深入文本斜面
+         *         config.bevelSize     { num float} 默认8  离文本轮廓多远
+         *         config.bevelSegments { num Integer} 默认3  锥段数
+         *         config.position { array } 默认[0,0,0] 位置
+         *         config.rotation { array } 默认[0,0,0] 旋转
+         *         config.scale    { array } 默认[1,1,1] 缩放
+         */
+        function fontRender (config) {
+            const Fontloader = new THREE.FontLoader();
+            let Mesh = new THREE.Object3D();
+            Fontloader.load(
+                config.font,
+                function ( font ) {
+                    const _height = config.height||50;
+                    const _curveSegments  = config.curveSegments || 12;
+                    const _bevelEnabled   = config.bevelEnabled || false;
+                    const _bevelThickness = config.bevelThickness || 10;
+                    const _bevelSize      = config.bevelSize || 8;
+                    const _bevelSegments  = config.bevelSegments || 3;
+                    const Geo = new THREE.TextGeometry( config.text, {
+                        font: font,
+                        size: config.size,
+                        height: _height,
+                        curveSegments: _curveSegments,
+                        bevelThickness: _bevelThickness,
+                        bevelSize: _bevelSize,
+                        bevelEnabled: _bevelEnabled,
+                        bevelSegments: _bevelSegments
+                    });
+                    Mesh = new THREE.Mesh( Geo, config.material );
+                    const _position = config.position||[0,0,0];
+                    Mesh.position.x = _position[0];
+                    Mesh.position.y = _position[1];
+                    Mesh.position.z = _position[2];
+                    const _rotation = config.rotation||[0,0,0];
+                    Mesh.rotation.x = _rotation[0]*Math.PI;
+                    Mesh.rotation.y = _rotation[1]*Math.PI;
+                    Mesh.rotation.z = _rotation[2]*Math.PI;
+                    const _scale = config.scale||[1,1,1];
+                    Mesh.scale.x = _scale[0];
+                    Mesh.scale.y = _scale[1];
+                    Mesh.scale.z = _scale[2];
+                    Mesh.castShadow = true;
+                    scene.add(Mesh)
+                }
+            );
+        }
+
+    }
+    //        屏幕中留言窗口
+    function blogPosition(lookat) {
+//            判断进入该区域显示内容。
+        if(-80<lookat.x&&lookat.x<77&&40<lookat.y&&lookat.y<170&&-40<lookat.z&&lookat.z<45){
+            document.querySelector('.blog').style.left =-350 + (77-lookat.x)*WIDTH +'px';
+            document.querySelector('.blog').style.top =-200 + (lookat.y-50)*HEIGHT +'px';
+        }
+    }
+
+    function initStats() {
+        const stats = new Stats();
+        stats.setMode(0);
+        stats.domElement.style.position = "absolute";
+        stats.domElement.style.left = "0px";
+        stats.domElement.style.top = "0px";
+        document.body.appendChild(stats.domElement);
+        return stats;
+    }
+</script>
+<script>
+
+
+</script>
+</body>
+</html>
