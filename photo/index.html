@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="HandheldFriendly" content="true">
-    <link rel="stylesheet" href="http://www.webhek.com/apps/3d-album/slider-wb.css">
+    <link rel="stylesheet" href="./slider-wb.css">
     <title>俊雅の相册</title>
     <style>
         html {
@@ -39,7 +39,7 @@
 
 
     </style>
-    <script src="http://www.webhek.com/apps/3d-album/ge1doot.js"></script>
+    <script src="./ge1doot.js"></script>
     <script>
         /*
          * ==============================================================
@@ -132,15 +132,9 @@
                                         camera.target.z = camera.over.tz;
                                         // ---- adapt tesselation level to distance ----
                                         for (var i = 0, d; d = diapo[i++];) {
-//                                            debugger;
                                             var dx = camera.target.x - d.pc.x;
-                                            console.log('dx: '+dx);
                                             var dz = camera.target.z - d.pc.z;
-                                            console.log('dz: '+dz);
-
                                             var dist = Math.sqrt(dx * dx + dz * dz);
-                                            console.log('dist: '+dist);
-
                                             var lev = (dist > 1500) ? quality[0] : quality[1];
                                             d.img.setLevel(lev);
                                         }
@@ -284,7 +278,7 @@
                 load : function (data) {
 
                     ge1doot.loadJS(
-                            "http://www.webhek.com/apps/3d-album/imageTransform3D.js",
+                            "./imageTransform3D.js",
                             init, data
                     );
                 }
@@ -412,7 +406,7 @@
 </script>
 <canvas id="canvas">需要更新浏览器啦，请使用谷歌浏览器。</canvas>
 
-<script src="http://www.webhek.com/apps/js/jquery-1.7.2.min.js"></script>
+<script src="./jquery.js"></script>
 
 
 <!--<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>-->
